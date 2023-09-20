@@ -1,0 +1,126 @@
+console.log("Ejercicio 1");
+// Dado el siguiente array
+const autos = [
+  {
+    marca: "Toyota",
+    modelo: 2022,
+    color: "rojo",
+  },
+  {
+    marca: "Renault",
+    modelo: 2015,
+    color: "gris",
+  },
+  {
+    marca: "Peugeot",
+    modelo: 2017,
+    color: "rojo",
+  },
+  {
+    marca: "Fiat",
+    modelo: 2021,
+    color: "negro",
+  },
+];
+
+//Crear una función que reciba el array por parametro y retorne un nuevo array con los autos cuyo modelo sea mayor o //igual a 2020.}
+const filtroAutos = (arreglo) => {
+  let autosModelo = [];
+  for (let i = 0; i < arreglo.length; i++) {
+    if (arreglo[i].modelo >= 2020) {
+      autosModelo.push(arreglo[i]);
+    }
+  }
+  return autosModelo;
+};
+
+let autosEncontrados = filtroAutos(autos);
+console.log(autosEncontrados);
+
+console.log("Ejercicio 2");
+// Dado el siguiente array de objetos ordenarlo de forma descendente en base a la notaPromedio
+let estudiantes = [
+  {
+    nombre: "juan",
+    activo: true,
+    notaPromedio: 5,
+  },
+  {
+    nombre: "maria",
+    activo: false,
+    notaPromedio: 3,
+  },
+  {
+    nombre: "florencia",
+    activo: true,
+    notaPromedio: 9,
+  },
+  {
+    nombre: "carlos",
+    activo: false,
+    notaPromedio: 8,
+  },
+  {
+    nombre: "jose",
+    activo: true,
+    notaPromedio: 6,
+  },
+];
+
+const ordenarXnotaProm = (arr) => {
+  let temp;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - 1; j++) {
+      if (arr[j].notaPromedio < arr[j + 1].notaPromedio) {
+        temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+};
+
+let estudiantesXpromedio = ordenarXnotaProm(estudiantes);
+console.log(estudiantesXpromedio);
+
+console.log("Ejercicio 3");
+//Dada la siguiente matriz, realizar los siguientes ejercicios.
+let matrix = [
+  [1, 4, 7, 4],
+  [5, 7, 6, 2],
+  [6, 2, 3, 3],
+  [2, 6, 8, 1],
+];
+//Crear una función que reciba por parámetros la matriz y la posición de una columna determinada.
+//La función debe retornar un arreglo con todos los elementos  de esa columna.
+
+console.log("parte 1");
+
+const columna = (matrix, posicion) => {
+  let nuevoArray = [];
+  for (let i = 0; i < matrix.length; i++) {
+    nuevoArray.push(matrix[i][posicion]);
+  }
+  return nuevoArray;
+};
+
+let resultado = columna(matrix, 1);
+console.table(resultado);
+
+//Crear una función que reciba por parámetro la matriz y cambie todos los elementos impares de la matriz por un número 0 //(cero)
+console.log("parte 2");
+
+const cambioImpares = (matrix) => {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (matrix[i][j] % 2 != 0) {
+        matrix[i][j] = 0;
+      }
+    }
+  }
+  return matrix;
+};
+
+let resultado2 = cambioImpares(matrix);
+console.table(resultado2);
